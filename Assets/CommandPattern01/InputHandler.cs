@@ -28,7 +28,18 @@ public class InputHandler : MonoBehaviour
     {
         List<ColorEntity> circles = EntityManager.GetRandomEntities(10);
 
-        ColorManager command = new(circles, Random.ColorHSV());
+        ColorManager command = new(circles, GetRandomColor());
         Invoker.AddCommand(command);
+    }
+
+    private Color GetRandomColor()
+    {
+        Color color = new Color();
+        color.r = Random.value;
+        color.g = Random.value;
+        color.b = Random.value;
+        color.a = 1;
+
+        return color;
     }
 }
